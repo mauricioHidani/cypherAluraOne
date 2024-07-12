@@ -46,7 +46,7 @@ footer {
     header { padding: 0 var(--mob-margin-side); }
     header h1 { font-size: var(--mob-h1-font-size); }
     main {
-        height: calc(100vh - var(--header-height) - (var(--mob-margin-side) * 2));
+        height: auto;
         margin: var(--mob-margin-side);
         display: block;
     }

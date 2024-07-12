@@ -48,6 +48,7 @@
     .input-section {
         width: 100%;
         height: 50%;
+        margin-top: var(--mob-margin-side);
     }
     .input-actions {
         height: 7.53rem;
