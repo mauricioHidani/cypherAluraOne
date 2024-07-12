@@ -3,27 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/styles/main.css">
+    <link rel="stylesheet" href="./assets/styles/actions_style.css">
+    <link rel="stylesheet" href="./assets/styles/alura_section.css">
+    <link rel="stylesheet" href="./assets/styles/input_section.css">
+    <link rel="stylesheet" href="./assets/styles/output_section.css">
+    <link rel="stylesheet" href="./assets/styles/footer_items.css">
     <title>Decodificador</title>
 </head>
 <body>
     <header>
-        <h1>Desafio Decodificador - Alura & One Turma 7</h1>
+        <h1><a href="https://www.oracle.com/br/education/oracle-next-education/" title="alura one turma 7" target="_blank">Alura & One T7</a></h1>
     </header>
     <main>
-        <section>
-            Logo/Social
+        <section class="alura-section">
+            <a href="https://www.alura.com.br/" title="alura" target="_blank">
+                <img src="./assets/icons/alura-a-ico.svg" alt="alura">
+            </a>
+            <ul>
+                <li>
+                    <a href="https://www.youtube.com/alura" title="youtube alura" target="_blank">
+                         <img src="./assets/icons/youtube.svg" alt="youtube" width="38px">
+                    </a> 
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/AluraCursosOnline/" title="facebook alura" target="_blank">
+                        <img src="./assets/icons/facebook.svg" alt="facebook" width="38px">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/aluraonline" title="twitter ou x alura" target="_blank">
+                        <img src="./assets/icons/twitter_or_x.svg" alt="x" width="38px">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com/aluraonline" title="instagra alura" target="_blank">
+                        <img src="./assets/icons/instagram.svg" alt="instagram" width="38px">
+                    </a>
+                </li>
+            </ul>
         </section>
-        <section>
-            Input
+        <section class="input-section">
+            <textarea name="input" id="input" placeholder="Digite seu texto"></textarea>
+            <div class="info-input">
+                <img src="./assets/icons/bi_exclamation-circle-fill.svg" alt="exclamacao" width="22px">
+                <span class="info-content">Apenas letras minúsculas e sem acento.</span>
+            </div>
+            <div class="input-actions">
+                <button onclick="onEncrypt()" class="dark-button">Criptografar</button>
+                <button onclick="onDecrypt()" class="light-button">Descriptografar</button>
+            </div>
         </section>
-        <section>
-            Output
+        <section class="output-section">
+            <div class="output-content">
+                <p id="output"></p>
+                <button class="light-button" disabled>Copiar</button>
+            </div>
+            <div class="info-output">
+                <img src="./assets/images/crypto.png" alt="criptografia">
+                <div class="info-output-message">
+                    <h2>Nenhuma mensagem encontrada</h2>
+                    <p>Digite um texto que você deseja criptografar ou descriptografar.</p>
+                </div>
+            </div>
         </section>
     </main>
     <footer>
         <p>Create at July 12, 2024 - São Paulo, Brazil</p>
-        <p>Mauricio Mityo Hidani</p>
+        <p class="author">
+            <p>Redes sociais: </p>
+            <a href="https://www.linkedin.com/in/mauricio-hidani" title="linkedin" target="_blank">
+                <img src="./assets/icons/linkedin.svg" alt="linkedin" width="24px">
+            </a>
+            <a href="https://www.github.com/mauricioHidani" title="github" target="_blank">
+                <img src="./assets/icons/github.svg" alt="github" width="24px">
+            </a>
+        </p>
     </footer>
     <script src="assets/js/main.js"></script>
 </body>

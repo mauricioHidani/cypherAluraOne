@@ -1,0 +1,57 @@
+@import url("./variables.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: none;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+    font-size: var(--std-font-size);
+    background: var(--light-blue-100);
+}
+
+header {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    padding: 0 2.22rem;
+}
+
+main {
+    margin: calc(var(--std-margin-side) / 2) var(--std-margin-side);
+    height: calc(100vh - var(--header-height) - var(--std-margin-side));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer {
+    padding: var(--mob-margin-side) 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: .9em;
+    font-style: italic;
+    color: var(--gray-400);
+}
+
+@media screen and (max-width: 375px) {
+    header { padding: 0 var(--mob-margin-side); }
+    header h1 { font-size: var(--mob-h1-font-size); }
+    main {
+        height: auto;
+        margin: var(--mob-margin-side);
+        display: block;
+    }
+    footer {
+        flex-direction: column;
+        gap: .5rem;
+    }
+}
