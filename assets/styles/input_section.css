@@ -1,0 +1,55 @@
+@import url("./variables.css");
+
+.input-section {
+    padding: 2px;
+    box-sizing: border-box;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-section textarea {
+    resize: none;
+    width: 100%;
+    border: none;
+    flex-grow: 1;
+    font-size: 1.6em;
+    color: var(--dark-blue-400);
+}
+.input-section textarea::placeholder {
+    opacity: 0.75;
+}
+
+.info-input {
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: .5rem;
+}
+.info-input span {
+    font-style: italic;
+    color: var(--gray-400);
+}
+
+.input-actions {
+    height: 3.5rem;
+    display: flex;
+    flex-direction: row;
+    gap: .53rem;
+}
+.input-actions button {
+    flex-grow: 1;
+}
+
+@media screen and (max-width: 375px) {
+    .input-section {
+        width: 100%;
+        height: 50%;
+    }
+    .input-actions {
+        height: 7.53rem;
+        flex-direction: column;
+    }
+}
