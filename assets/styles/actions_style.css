@@ -1,0 +1,26 @@
+@import url("./variables.css");
+
+button {
+    padding: var(--btn-padding);
+    border-radius: var(--btn-border-radius);
+    font-size: 11pt;
+    transition: .3s ease;
+}
+
+.dark-button {
+    border: none;
+    background-color: var(--dark-blue-400);
+    color: white;
+}
+.dark-button:hover {
+    background-color: var(--dark-blue-300);
+}
+
+.light-button {
+    border: 1px solid var(--dark-blue-300);
+    background-color: var(--light-blue-200);
+    color: var(--dark-blue-300);
+}
+.light-button:hover {
+    background-color: white;
+}
