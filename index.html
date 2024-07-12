@@ -50,19 +50,23 @@
             <textarea name="input" id="input" placeholder="Digite seu texto"></textarea>
             <div class="info-input">
                 <img src="./assets/icons/bi_exclamation-circle-fill.svg" alt="exclamacao" width="22px">
-                <span class="info-content">Apenas letras minúsculas e sem acento.</span>
+                <span class="info-content" id="info-content">Apenas letras minúsculas e sem acento.</span>
             </div>
+            <select class="cypher-type" id="cypher-option">
+                <option value="pattern">Combinação de padrões</option>
+                <option value="caesar">Cifra de Cesar</option>
+            </select>
             <div class="input-actions">
                 <button onclick="onEncrypt()" class="dark-button">Criptografar</button>
                 <button onclick="onDecrypt()" class="light-button">Descriptografar</button>
             </div>
         </section>
         <section class="output-section">
-            <div class="output-content">
+            <div class="output-content" id="output-content">
                 <p id="output"></p>
-                <button class="light-button" disabled>Copiar</button>
+                <button onclick="onClip()" class="dark-button">Copiar</button>
             </div>
-            <div class="info-output">
+            <div class="info-output" id="info-output">
                 <img src="./assets/images/crypto.png" alt="criptografia">
                 <div class="info-output-message">
                     <h2>Nenhuma mensagem encontrada</h2>
