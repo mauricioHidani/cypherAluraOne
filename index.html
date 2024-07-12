@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./assets/styles/actions_style.css">
     <link rel="stylesheet" href="./assets/styles/alura_section.css">
     <link rel="stylesheet" href="./assets/styles/input_section.css">
+    <link rel="stylesheet" href="./assets/styles/output_section.css">
     <title>Decodificador</title>
 </head>
 <body>
@@ -55,8 +56,18 @@
                 <button onclick="onDecrypt()" class="light-button">Descriptografar</button>
             </div>
         </section>
-        <section>
-            Output
+        <section class="output-section">
+            <div class="output-content">
+                <p id="output"></p>
+                <button class="light-button" disabled>Copiar</button>
+            </div>
+            <div class="info-output">
+                <img src="./assets/images/crypto.png" alt="criptografia">
+                <div class="info-output-message">
+                    <h2>Nenhuma mensagem encontrada</h2>
+                    <p>Digite um texto que você deseja criptografar ou descriptografar.</p>
+                </div>
+            </div>
         </section>
     </main>
     <footer>
