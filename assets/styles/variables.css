@@ -29,6 +29,7 @@
         /* CONTAINER */
         --std-margin-side: 4rem;
         --mob-margin-side: 1rem;
+        --std-border-radius: 18px;
         --header-height: 3rem;
 
         /* BUTTONS */
