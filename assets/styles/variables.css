@@ -20,4 +20,15 @@
     --gray-300: #868E96;
     --gray-400: #495057;
     --gray-500: #343A40;
+
+    /* SIZES */
+        /* FONTS */
+        --std-font-size: 14px;
+        --mob-h1-font-size: 14px;
+
+        /* CONTAINER */
+        --std-margin-side: 4rem;
+        --mob-margin-side: 1rem;
+        --header-height: 3rem;
+
 } 
