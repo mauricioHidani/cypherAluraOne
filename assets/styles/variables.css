@@ -31,4 +31,8 @@
         --mob-margin-side: 1rem;
         --header-height: 3rem;
 
+        /* BUTTONS */
+        --btn-border-radius: 16px;
+        --btn-padding: 12px;
+
 } 
