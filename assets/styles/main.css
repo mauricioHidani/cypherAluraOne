@@ -5,6 +5,9 @@
     padding: 0;
     box-sizing: none;
     font-family: "Inter", sans-serif;
+}
+
+body {
     font-optical-sizing: auto;
     font-weight: normal;
     font-style: normal;
