@@ -1,32 +1,25 @@
-// BASE DE INFORMACOES PARA A CRIPTOGRAFIA
-const KEYS = ['e', 'i', 'a', 'o', 'u'];
-const SHIFT_KEYS = ['enter', 'imes', 'ai', 'ober', 'ufat'];
-const CAESAR_PATTERN = 6;
-const CLIPBOARD_DURATION = 3000;
+import { encryptCaesar, decryptCaesar, CAESAR_PATTERN } from "./caesar_cypher.js";
+import { encryptContentPattern, decryptContentPattern, KEYS, SHIFT_KEYS } from "./pattern_cypher.js";
+import { onClip } from "./clipboard.js";
+import { contents } from "./contents.js";
 
 const CYPHER_TYPES = ['pattern', 'caesar'];
 
 // INFORMACOES DAS TRATATIVAS DO CONTEUDO
-const onInput = () => document.getElementById('input').value;
-const output = document.getElementById('output');
-const onType = () => document.getElementById('cypher-option').value;
-const info = document.getElementById('info-content');
-const outputContent = document.getElementById('output-content');
-const outputInfo = document.getElementById('info-output');
+const onInput = () => document.getElementById(contents.input).value;
+const onType = () => document.getElementById(contents.cypherOptions).value;
+const output = document.getElementById(contents.output);
+const info = document.getElementById(contents.info);
+const outputContent = document.getElementById(contents.outputContent);
+const outputInfo = document.getElementById(contents.outputInfo);
 
-// BASE PADRAO DE MENSAGENS
-const STD_INFO_MSG = 'Apenas letras minúsculas e sem acento.';
+// BASE PADRAO DE INFORMACOES
+let state = {
+    step: ''
+};
 
-// INFORMACOES
-let step = '';
-onStdContainerValues();
-
-function onStdContainerValues() {
-    step = '';
-    info.innerText = STD_INFO_MSG;
-    outputContent ? outputContent.style.display = 'none' : null;
-    outputInfo ? outputInfo.style.display = 'flex' : null;
-}
+// RESETANDO INFORMACOES
+onStdValues();
 
 function onEncrypt() {
     const input = onInput();
@@ -44,7 +37,7 @@ function onEncrypt() {
         }
 
         if (result) {
-            step = 'encriptado';
+            state.step = 'encriptado';
             onShowInfo(result);
         }
     }
@@ -65,83 +58,30 @@ function onDecrypt() {
         }
 
         if (result) {
-            step = 'desencriptado';
+            state.step = 'desencriptado';
             onShowInfo(result);
         }
     }
 }
 
-function onClip() {
-    const okInfo = `O texto ${step} foi cópiado com sucesso!`;
-    const errInfo = `Algo deu errado ao tentar cópiar o texto ${step}`;
-
-    navigator.clipboard.writeText(output.innerText)
-        .then(() => onShowInfoTimer(info, okInfo, CLIPBOARD_DURATION))
-        .catch((err) => info ? info.innerHTML = errInfo : null);
-}
-
-function onShowInfoTimer(info, message, duration) {
-    const interval = 1000;
-    let remaining = duration;
-
-    if (info) {
-        info.innerHTML = `${message} (irá sumir em ${duration/1000}s)`;
-        const intervalID = setInterval(() => {
-            remaining -= interval;
-            info.innerHTML = `${message} (irá sumir em ${remaining/1000}s)`;
-
-            if (remaining <= 0) {
-                clearInterval(intervalID);
-                onStdContainerValues();
-            }
-        }, interval);
-    }
-}
-
 function onShowInfo(result) {
     output ? output.innerText = result : null;
-    info ? info.innerText = `O texto foi ${step}` : STD_INFO_MSG;
+    info ? info.innerText = `O texto foi ${state.step}` : 'Apenas letras minúsculas e sem acento.';
     outputContent ? outputContent.style.display = 'flex' : null;
     outputInfo ? outputInfo.style.display = 'none' : null;
 }
 
-function encryptContentPattern(input, keys, shiftKeys) {
-    return input.toLowerCase().split('').map((char) => {
-        if (keys.includes(char)) {
-            const index = keys.indexOf(char);
-            return shiftKeys[index];
-        } 
-        return char;
-    }).join('');
+function onStdValues() {
+    state.step = '';
+    info.innerText = 'Apenas letras minúsculas e sem acento.';
+    outputContent ? outputContent.style.display = 'none' : null;
+    outputInfo ? outputInfo.style.display = 'flex' : null;
 }
 
-function decryptContentPattern(input, keys, shiftKeys) {
-    let result = input;
-    shiftKeys.forEach((key, index) => {
-        if (result.includes(key)) {
-            result = result.replace(new RegExp(key, 'g'), keys[index]);
-        }
-    });
-    return result;
-}
+// GLOBAL VARIABLES
+document.onEncrypt = onEncrypt;
+document.onDecrypt = onDecrypt;
+document.onClip = onClip;
 
-function encryptCaesar(input, pattern) {
-    return input.split('').map((char) => {
-        const crrCode = char.charCodeAt(0);
-        if (crrCode >= 97 && crrCode <= 122) {
-            return String.fromCharCode((crrCode - 97 + pattern) % 26 + 97);
-        }
-        return char;
-    }).join('');
-}
-
-function decryptCaesar(input, pattern) {
-    return input.split('').map((char) => {
-        const charCode = char.charCodeAt(0);
-        if (charCode >= 97 && charCode <= 122) { 
-            return String.fromCharCode((charCode - 97 - pattern + 26) % 26 + 97);
-        }
-        
-        return char;
-    }).join('');
-}
+// VARIAVEIS 
+export { state };
