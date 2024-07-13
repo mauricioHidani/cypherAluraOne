@@ -22,6 +22,17 @@ header {
     align-items: center;
     padding: 0 2.22rem;
 }
+header a {
+    letter-spacing: .2em;
+    word-spacing: .3em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--dark-blue-100);
+    transition: .32s ease-in;
+}
+header a:hover {
+    color: var(--dark-blue-200);
+}
 
 main {
     margin: calc(var(--std-margin-side) / 2) var(--std-margin-side);
@@ -42,9 +53,13 @@ footer {
     color: var(--gray-400);
 }
 
-@media screen and (max-width: 375px) {
-    header { padding: 0 var(--mob-margin-side); }
-    header h1 { font-size: var(--mob-h1-font-size); }
+@media screen and (max-width: 768px) {
+    header { 
+        padding: 0 var(--mob-margin-side); 
+    }
+    header h1 { 
+        font-size: calc(var(--mob-h1-font-size) * 2); 
+    }
     main {
         height: auto;
         margin: var(--mob-margin-side);
@@ -54,4 +69,8 @@ footer {
         flex-direction: column;
         gap: .5rem;
     }
+}
+
+@media screen and (max-width: 375px) {
+    header h1 { font-size: var(--mob-h1-font-size); }
 }
