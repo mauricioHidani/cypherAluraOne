@@ -1,6 +1,7 @@
 import { encryptCaesar, decryptCaesar, CAESAR_PATTERN } from "./caesar_cypher.js";
 import { encryptContentPattern, decryptContentPattern, KEYS, SHIFT_KEYS } from "./pattern_cypher.js";
 import { onClip } from "./clipboard.js";
+import { onTestInput } from "./validation.js";
 import { contents } from "./contents.js";
 
 const CYPHER_TYPES = ['pattern', 'caesar'];
@@ -26,7 +27,7 @@ function onEncrypt() {
     const type = onType();
     let result = '';
 
-    if (input) {
+    if (input && onTestInput(input, info)) {
         switch (type) {
             case CYPHER_TYPES[0]:
                 result = encryptContentPattern(input, KEYS, SHIFT_KEYS);
@@ -48,7 +49,7 @@ function onDecrypt() {
     const type = onType();
     let result = '';
 
-    if (input) {
+    if (input && onTestInput(input, info)) {
         switch (type) {
             case CYPHER_TYPES[0]: 
                 result = decryptContentPattern(input, KEYS, SHIFT_KEYS);
