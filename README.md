@@ -5,6 +5,8 @@ O Decodificador consegue criptogradar ou descriptografar em dois formatos de cri
 
 Além da criptografia, conta também com a funcionalidade de copiar o texto criptografado ou decriptografado de acordo com a ação realizada e a adaptação de dispositivos móveis ou desktop.
 
+Para visualizar o desafio visite a [página](https://mauriciohidani.github.io/cypherAluraOne/).
+
 **Desktop**<br>
 [![Desktop Screen One-Alura Challenge](https://raw.githubusercontent.com/mauricioHidani/brainStorage/main/assets/images/challenge_cypher_one_alura_desktop.png)](https://raw.githubusercontent.com/mauricioHidani/brainStorage/main/assets/images/challenge_cypher_one_alura_desktop_original.png)
 
